@@ -60,6 +60,39 @@
 			
 		</p:dataTable>
 		</h:form>
+		
+		<h:form>
+		
+			<p:inputText
+				label="Designation"
+				value="#{bouteilleControleur.maNouvelleBouteille.designation}" />
+			
+			<p:inputText
+				label="Region"
+				value="#{bouteilleControleur.maNouvelleBouteille.region}" />
+			
+			<p:inputText
+				label="Couleur"
+				value="#{bouteilleControleur.maNouvelleBouteille.couleur}" />
+			
+			<p:inputText
+				label="Annee"
+				value="#{bouteilleControleur.maNouvelleBouteille.annee}" />
+			
+			<p:inputText
+				label="Contenance"
+				value="#{bouteilleControleur.maNouvelleBouteille.contenance}" />
+			
+			<p:selectBooleanCheckbox
+				label="Bio"
+				value="#{bouteilleControleur.maNouvelleBouteille.bio}" />
+				
+			<p:commandButton
+				value="Valider"
+				action="#{bouteilleControleur.ajouterNouvelleBouteille()}"
+				ajax="false" />
+		
+		</h:form>
 	
 	</h:body>
 

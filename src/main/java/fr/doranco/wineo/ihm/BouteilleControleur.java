@@ -5,18 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import fr.doranco.wineo.ihm.objetmetier.Bouteille;
 
 @ManagedBean(name = "bouteilleControleur")
-@RequestScoped
+@SessionScoped
 public class BouteilleControleur {
 
 	private List<Bouteille> bouteilles;
 	
+	private Bouteille maNouvelleBouteille;
+	
 	public BouteilleControleur() {
 		super();
+		
+		maNouvelleBouteille = new Bouteille();
 		
 		bouteilles = new ArrayList<>();
 		
@@ -35,6 +39,12 @@ public class BouteilleControleur {
 		bouteilles.add(new Bouteille("Lambrusco", new BigDecimal(0.75d), "Rouge",
 				"Po", 2014, false));
 	}
+	
+	public String ajouterNouvelleBouteille() {
+		this.bouteilles.add(maNouvelleBouteille);
+		maNouvelleBouteille = new Bouteille();
+		return "index";
+	}
 
 	public List<Bouteille> getBouteilles() {
 		return bouteilles;
@@ -42,6 +52,14 @@ public class BouteilleControleur {
 
 	public void setBouteilles(List<Bouteille> bouteilles) {
 		this.bouteilles = bouteilles;
+	}
+
+	public Bouteille getMaNouvelleBouteille() {
+		return maNouvelleBouteille;
+	}
+
+	public void setMaNouvelleBouteille(Bouteille maNouvelleBouteille) {
+		this.maNouvelleBouteille = maNouvelleBouteille;
 	}
 	
 }
