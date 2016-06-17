@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<f:metadata>
+		<f:viewParam name="proprietaire" value="#{caveControleur.proprietaire}" />
+	</f:metadata>
+
+	<h:head>
+	</h:head>
+
+	<h:body>
+	
+		<h:outputText value="Proprietaire = #{caveControleur.proprietaire}" />
+	
+		<h:form>
+
+			<p:dataTable value="#{caveControleur.obtenirBouteilles()}"
+				var="bouteille">
+
+				<p:column headerText="Designation" sortBy="#{bouteille.designation}"
+					filterBy="#{bouteille.designation}">
+					<h:outputText value="#{bouteille.designation}" />
+				</p:column>
+
+				<p:column headerText="Region" sortBy="#{bouteille.region}"
+					filterBy="#{bouteille.region}">
+					<h:outputText value="#{bouteille.region}" />
+				</p:column>
+
+				<p:column headerText="Couleur" sortBy="#{bouteille.couleur}"
+					filterBy="#{bouteille.couleur}">
+					<h:outputText value="#{bouteille.couleur}" />
+				</p:column>
+
+				<p:column headerText="Annee" sortBy="#{bouteille.annee}"
+					filterBy="#{bouteille.annee}">
+					<h:outputText value="#{bouteille.annee}" />
+				</p:column>
+
+				<p:column headerText="Contenance" sortBy="#{bouteille.contenance}"
+					filterBy="#{bouteille.contenance}">
+					<h:outputText value="#{bouteille.contenance}" />
+				</p:column>
+
+				<p:column headerText="Bio" sortBy="#{bouteille.bio}"
+					filterBy="#{bouteille.bio}">
+					<h:outputText value="#{ bouteille.bio ? 'BIO' : '' }" />
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+
+	</h:body>
+</html>

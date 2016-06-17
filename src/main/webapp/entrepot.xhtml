@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+	</h:head>
+	
+	<h:body>
+	
+		<h:form>
+		
+			<p:dialog widgetVar="detailCave">
+				<h:panelGrid>
+					<h:outputText
+						value="#{entrepotControleur.caveDetaillee.proprietaire}" />
+					<h:outputText
+						value="#{entrepotControleur.caveDetaillee.temperature}" />
+					<h:outputText
+						value="#{entrepotControleur.caveDetaillee.capacite}" />
+				</h:panelGrid>
+			</p:dialog>
+	
+			<p:dataTable
+				value="#{entrepotControleur.obtenirCaves()}"
+				var="cave">
+				
+				<p:column
+					headerText="Proprietaire">
+					<h:outputText value="#{cave.proprietaire}" />
+				</p:column>
+				
+				<p:column
+					headerText="Capacite">
+					<h:outputText value="#{cave.capacite}" />
+				</p:column>
+				
+				<p:column
+					headerText="Temperature">
+					<h:outputText value="#{cave.temperature}" />
+				</p:column>
+				
+				<p:column>
+					<p:link value="COUCOU!" outcome="cave">
+						<f:param name="proprietaire" value="#{cave.proprietaire}" />
+					</p:link>
+				</p:column>
+				
+			</p:dataTable>
+		
+		</h:form>
+		
+	</h:body>
+	
+</html>
